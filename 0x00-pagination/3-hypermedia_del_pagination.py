@@ -36,6 +36,7 @@ class Server:
         """Return pagination data after deletions"""
         assert isinstance(index, int) and index >= 0
         assert isinstance(page_size, int) and page_size > 0
+        assert index < len(self.indexed_dataset())
 
         indexed_data = self.indexed_dataset()
         data = []
