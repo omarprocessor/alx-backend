@@ -34,9 +34,9 @@ class LFUCache(BaseCaching):
                 # Find minimum frequency
                 min_freq = min(self.freq.values())
                 # Collect all keys with that frequency
-                candidates = [k for k in self.order if self.freq[k] == min_freq]
+                candidate = [k for k in self.order if self.freq[k] == min_freq]
                 # The LRU of those candidates is the first one in order
-                lfu_key = candidates[0]
+                lfu_key = candidate[0]
                 del self.cache_data[lfu_key]
                 del self.freq[lfu_key]
                 self.order.remove(lfu_key)
