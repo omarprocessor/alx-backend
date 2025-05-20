@@ -1,16 +1,22 @@
-from flask import Flask, render_template
+#!/usr/bin/env python3
 """
-This module renders index.html which contains h1 'Hello World'
+Basic Flask application that renders a welcome message
+at the root route using a template.
 """
 
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 
 @app.route('/')
-def home():
+def index() -> str:
+    """
+    Route handler for the root URL.
+    Returns the rendered index HTML template.
+    """
     return render_template('0-index.html')
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
